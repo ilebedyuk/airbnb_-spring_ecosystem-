@@ -13,7 +13,7 @@ import org.springframework.stereotype.Component;
  * @author ilebedyuk
  */
 @Component
-public class UserLoader implements ApplicationListener<ContextRefreshedEvent> {
+public class ApplicationLoader implements ApplicationListener<ContextRefreshedEvent> {
 
     @Autowired
     private UserRepository userRepository;
