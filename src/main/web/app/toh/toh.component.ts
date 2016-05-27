@@ -1,4 +1,4 @@
-//import { Component }         from '@angular/core';
+import { Component }         from '@angular/core';
 import { HTTP_PROVIDERS }    from '@angular/http';
 
 import { HeroListComponent } from './../usersList/hero-list.component.ts';

@@ -3,13 +3,12 @@ import { Component } from '@angular/core';
 import { HeroListComponent } from './../usersList/hero-list.component';
 import { HeroService }       from './../services/user.service';
 import { Links } from './../model/links';
-import { CountryDemo } from './../tree/country-demo';
 
 @Component({
     selector: 'hero-login',
     templateUrl: 'app/login/user-login.component.html',
     styleUrls: ['app/login/user-login.component.css'],
-    directives: [HeroListComponent, CountryDemo]
+    directives: [HeroListComponent]
 })
 export class HeroLoginComponent {
 

@@ -1,10 +1,8 @@
-define(["require", "exports"], function (require, exports) {
-    "use strict";
-    var User = (function () {
-        function User() {
-        }
-        return User;
-    }());
-    exports.User = User;
-});
+"use strict";
+var User = (function () {
+    function User() {
+    }
+    return User;
+}());
+exports.User = User;
 //# sourceMappingURL=user.js.map
