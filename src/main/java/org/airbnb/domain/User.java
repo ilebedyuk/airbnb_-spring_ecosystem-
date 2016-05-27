@@ -1,10 +1,13 @@
-package org.airbnb.model;
+package org.airbnb.domain;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.*;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 
 /**
  * @author ilebedyuk
@@ -13,21 +16,19 @@ import javax.persistence.*;
 @NoArgsConstructor
 @AllArgsConstructor
 @Data
-public class AppUser {
+public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "userid", nullable = false)
-    private Long userId;
-    @Column(name = "name", nullable = false)
-    private String name;
+    private Long id;
 
-    //    private String surname;
+    private String userName;
+//    private String surname;
 //    private String email;
-
-
 //    private String password;
+//
 //    @OneToMany
 //    private List<Apartament> apartaments;
+//
 //    @OneToMany
 //    private List<Comment> comments;
 }

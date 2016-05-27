@@ -2,7 +2,7 @@ package org.airbnb.services;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.airbnb.domain.AppUser;
+import org.airbnb.domain.User;
 import org.airbnb.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -20,19 +20,19 @@ public class UserService {
     @Autowired
     UserRepository userRepository;
 
-    public void save(AppUser appUser) {
+    public void save(User appUser) {
         userRepository.save(appUser);
     }
 
-    public void delete(AppUser appUser){
+    public void delete(User appUser){
         userRepository.delete(appUser);
     }
 
-    public AppUser findOne(long userId) {
+    public User findOne(long userId) {
         return userRepository.findOne(userId);
     }
 
-    public Iterable<AppUser> findAll(){
+    public Iterable<User> findAll(){
         return userRepository.findAll();
     }
 }

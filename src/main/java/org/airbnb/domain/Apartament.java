@@ -17,18 +17,17 @@ public class Apartament {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long apartamentId;
-    private String apartamentName;
+    @Enumerated(EnumType.STRING)
+    private ApartamentType apartamentType;
     private int price;
     private String description;
     private String apartamentPhoto;
 
     @ManyToOne
-    private AppUser owner;
+    private User owner;
 
 //    @OneToMany
 //    private List<ReservationDate> reservationDates;
-//    @OneToMany
-//    private List<Comment> comments;
-//    @ManyToOne
-//    private City city;
+    @ManyToOne
+    private City city;
 }

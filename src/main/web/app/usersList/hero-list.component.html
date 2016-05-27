@@ -1,0 +1,27 @@
+<div class="container">
+    <div class="panel panel-default">
+
+        <!-- Table -->
+        <table class="table" >
+            <thead>
+            <tr>
+                <th>Username</th>
+                <th>Lastname</th>
+                <th>Email</th>
+                <th>Photo</th>
+            </tr>
+            </thead>
+            <tbody *ngFor="let hero of heroes">
+            <tr>
+                <td>{{hero.userName}}</td>
+                <td>{{hero.lastName}}</td>
+                <td>{{hero.email}}</td>
+                <td><img src="{{hero.avatar}}"></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+
+<div class="error" *ngIf="errorMessage">{{errorMessage}}</div>

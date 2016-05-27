@@ -1,0 +1,9 @@
+
+html, body {
+    height: 100%;
+}
+
+.logo {
+    position: relative;
+    left: 78px;
+}

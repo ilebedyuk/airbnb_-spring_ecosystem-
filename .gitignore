@@ -19,3 +19,10 @@ logs
 hs_err_pid*
 
 .DS_Store
+
+typings
+node_modules
+jspm_packages
+/src/main/web/app/**/*.js
+/src/main/web/app/**/*.map
+bower_components
