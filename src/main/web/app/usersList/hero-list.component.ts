@@ -22,7 +22,7 @@ export class HeroListComponent implements OnInit {
     }
 
     getHeroes(ticket: string) {
-        this.heroService.getHeroes(ticket)
+        this.heroService.getHeroes()
             .subscribe(
                 heroes => this.heroes = heroes,
                 error =>  this.errorMessage = <any>error);

@@ -1,13 +1,15 @@
 {
-  "name": "angular2-quickstart",
-  "version": "1.0.0",
+  "name": "fp-web-angular2",
+  "version": "2.0.0",
+  "author": "segabriel",
+  "description": "",
+  "private": true,
+  "keywords": [],
   "scripts": {
-    "start": "tsc && concurrently \"npm run tsc:w\" \"npm run lite\" ",
-    "lite": "lite-server",
-    "postinstall": "typings install",
-    "tsc": "tsc",
-    "tsc:w": "tsc -w",
-    "typings": "typings"
+    "start": "lite-server"
+  },
+  "engines": {
+    "npm": ">=2.14.x"
   },
   "license": "ISC",
   "dependencies": {
@@ -20,26 +22,16 @@
     "@angular/router":  "2.0.0-rc.1",
     "@angular/router-deprecated":  "2.0.0-rc.1",
     "@angular/upgrade":  "2.0.0-rc.1",
-
     "systemjs": "0.19.27",
-    "es6-shim": "^0.35.0",
+    "core-js": "^2.4.0",
     "reflect-metadata": "^0.1.3",
     "rxjs": "5.0.0-beta.6",
     "zone.js": "^0.6.12",
-
-    "events": "^1.0.2",
-    "fbjs": "^0.3.1",
-    "flux": "^2.1.1",
-
-    "angular2-in-memory-web-api": "0.0.7",
+    "angular2-in-memory-web-api": "0.0.10",
     "bootstrap": "^3.3.6"
   },
   "devDependencies": {
-    "bower": "^1.3.12",
-    "broccoli-writer": "^0.1.1",
-    "concurrently": "^2.0.0",
     "lite-server": "^2.2.0",
-    "typescript": "^1.8.10",
-    "typings":"^0.8.1"
+    "typescript": "^1.8.10"
   }
 }

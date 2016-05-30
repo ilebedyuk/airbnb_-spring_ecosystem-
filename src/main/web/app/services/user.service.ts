@@ -3,8 +3,8 @@ import { Http, Response } from '@angular/http';
 import { Headers, RequestOptions } from '@angular/http';
 
 import { User }           from './../model/user';
-import { Observable }     from '../../node_modules/rxjs/Observable.d.ts';
 import { Links } from './../model/links';
+import {Observable} from "rxjs/Rx";
 
 @Injectable()
 export class HeroService {
@@ -14,11 +14,11 @@ export class HeroService {
 
     constructor (private http: Http, private links : Links) {}
 
-    getHeroes(ticket: string) : Observable<User[]> {
-        let heroesUrl = this.heroesUrl + ticket;
+    getHeroes() : Observable<User[]> {
+        let heroesUrl = this.heroesUrl + sessionStorage.getItem("ticket");
 
         return this.http.get(heroesUrl)
-            .map(heroes => this.extractData(heroes, ticket, this.links))
+            .map(heroes => this.extractData(heroes, sessionStorage.getItem("ticket"), this.links))
             .catch(this.handleError);
     }
 
@@ -37,6 +37,7 @@ export class HeroService {
             throw new Error('Response status: ' + res.status);
         }
         let body = res.json();
+        sessionStorage.setItem("ticket", body.data.ticket);
 
         return body.data.ticket || {};
     }
