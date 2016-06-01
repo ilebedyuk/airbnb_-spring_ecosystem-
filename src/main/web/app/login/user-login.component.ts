@@ -12,6 +12,8 @@ import { Links } from './../model/links';
 })
 export class HeroLoginComponent {
 
+    ticket: string = localStorage.getItem("ticket");
+
     errorMessage: string;
 
     constructor (private heroService: HeroService, private links: Links ) {}
@@ -20,7 +22,8 @@ export class HeroLoginComponent {
         if (!username && !password) {return;}
         this.heroService.getTicket(username, password)
             .subscribe(
-                ticket => {this.links.ticket = ticket},
+                ticket => {localStorage.setItem("ticket", ticket);
+                this.ticket = ticket},
                 error =>  this.errorMessage = <any>error);
     }
 }

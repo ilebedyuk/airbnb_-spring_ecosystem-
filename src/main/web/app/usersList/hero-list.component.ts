@@ -10,18 +10,23 @@ import { HeroService }       from './../services/user.service.ts';
 })
 export class HeroListComponent implements OnInit {
 
-    @Input() ticket: string;
+    // @Input() ticket: string;
     errorMessage: string;
     heroes:User[];
 
     constructor (private heroService: HeroService) {}
 
+    // ngOnInit() {
+    //     if (!this.ticket) {return;}
+    //     this.getHeroes(this.ticket);
+    // }
+    
     ngOnInit() {
-        if (!this.ticket) {return;}
-        this.getHeroes(this.ticket);
+        if (!localStorage.getItem("ticket")) {return;}
+        this.getHeroes();
     }
 
-    getHeroes(ticket: string) {
+    getHeroes() {
         this.heroService.getHeroes()
             .subscribe(
                 heroes => this.heroes = heroes,

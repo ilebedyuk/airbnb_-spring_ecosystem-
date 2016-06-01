@@ -18,8 +18,12 @@ import org.springframework.transaction.annotation.Transactional;
 @Transactional
 public class CityService {
 
+    private CityRepository cityRepository;
+
     @Autowired
-    CityRepository cityRepository;
+    public CityService(CityRepository cityRepository) {
+        this.cityRepository = cityRepository;
+    }
 
     public void save(City city) {
         cityRepository.save(city);

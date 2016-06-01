@@ -15,10 +15,10 @@ export class HeroService {
     constructor (private http: Http, private links : Links) {}
 
     getHeroes() : Observable<User[]> {
-        let heroesUrl = this.heroesUrl + sessionStorage.getItem("ticket");
+        let heroesUrl = this.heroesUrl + localStorage.getItem("ticket");
 
         return this.http.get(heroesUrl)
-            .map(heroes => this.extractData(heroes, sessionStorage.getItem("ticket"), this.links))
+            .map(heroes => this.extractData(heroes, localStorage.getItem("ticket"), this.links))
             .catch(this.handleError);
     }
 
@@ -37,8 +37,6 @@ export class HeroService {
             throw new Error('Response status: ' + res.status);
         }
         let body = res.json();
-        sessionStorage.setItem("ticket", body.data.ticket);
-
         return body.data.ticket || {};
     }
 
@@ -54,7 +52,6 @@ export class HeroService {
         for (let human of body.people) {
             human.avatar = human.avatar === undefined ? undefined : serviceUrl + human.avatar  + ticketUrl;
         }
-        console.log( body);
         return body.people || [];
     }
 

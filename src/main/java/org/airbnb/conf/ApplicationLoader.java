@@ -9,6 +9,8 @@ import org.springframework.stereotype.Component;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * @author ilebedyuk
@@ -20,6 +22,9 @@ public class ApplicationLoader implements ApplicationListener<ContextRefreshedEv
 
     @Autowired
     private UserRepository userRepository;
+
+    @Autowired
+    private CountryRepository countryRepository;
 
     @Autowired
     private ApartamentRepository apartamentRepository;
@@ -46,6 +51,49 @@ public class ApplicationLoader implements ApplicationListener<ContextRefreshedEv
         city1.setCityName(CityName.CHERNIVCHI);
         city1.setCityPhoto("123.jpg");
         cityRepository.save(city1);
+
+        City city2 = new City();
+        city2.setCityName(CityName.KHARKIV);
+        city2.setCityPhoto("1234.jpg");
+        cityRepository.save(city2);
+
+        Country country1 = new Country();
+        country1.setCountyName(CountyName.UKRAINE);
+        List<City> cities = new ArrayList<>();
+        cities.add(city1);
+        cities.add(city2);
+        country1.setCities(cities);
+        countryRepository.save(country1);
+
+
+        Country country3 = new Country();
+        country3.setCountyName(CountyName.CHINA);
+        countryRepository.save(country3);
+
+        Country country4 = new Country();
+        country4.setCountyName(CountyName.GERMANY);
+        countryRepository.save(country4);
+
+        Country country5 = new Country();
+        country5.setCountyName(CountyName.USA);
+        countryRepository.save(country5);
+
+        Country country6 = new Country();
+        country6.setCountyName(CountyName.USA);
+        countryRepository.save(country6);
+
+        Country country7 = new Country();
+        country7.setCountyName(CountyName.USA);
+        countryRepository.save(country7);
+
+        Country country8 = new Country();
+        country8.setCountyName(CountyName.USA);
+        countryRepository.save(country8);
+
+        Country country9 = new Country();
+        country9.setCountyName(CountyName.UKRAINE);
+        countryRepository.save(country9);
+
 
         Apartament apartament1 = new Apartament();
         apartament1.setApartamentType(ApartamentType.ROOM);
@@ -80,10 +128,10 @@ public class ApplicationLoader implements ApplicationListener<ContextRefreshedEv
 //        appUser2.setPassword("123");
         userRepository.save(appUser2);
 
-        City city2 = new City();
-        city2.setCityName(CityName.KHARKIV);
-        city2.setCityPhoto("12345.jpg");
-        cityRepository.save(city2);
+        City city3 = new City();
+        city3.setCityName(CityName.KHARKIV);
+        city3.setCityPhoto("12345.jpg");
+        cityRepository.save(city3);
 
         Apartament apartament2 = new Apartament();
         apartament2.setApartamentType(ApartamentType.APARTAMENT);
