@@ -22,12 +22,13 @@ import static org.springframework.hateoas.mvc.ControllerLinkBuilder.linkTo;
  * @author ilebedyuk
  */
 @RestController
+@RequestMapping(value = "/countries")
 public class CountryController {
     @Inject
     private CountryService countryService;
 
 
-    @RequestMapping(value = "/countries", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+    @RequestMapping(method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
     public PagedResources findAll(@RequestParam(value = "page", required = false, defaultValue = "0") int page,
                                   @RequestParam(value = "size", required = false, defaultValue = "10") int size) {
         Page<Country> countriesPage = countryService.findAll(new PageRequest(page, size));
@@ -38,7 +39,7 @@ public class CountryController {
         return new PagedResources<>(countries, getMetadata(countriesPage), getLinks(countriesPage));
     }
 
-    @RequestMapping(value = "/countries/{id}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+    @RequestMapping(value = "/{id}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
     public Country findOne(@PathVariable("id") long countryId) {
         Country country = countryService.findOne(countryId);
         if (country == null) throw new CountryNotFoundException();
